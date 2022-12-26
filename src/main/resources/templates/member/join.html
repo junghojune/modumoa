@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/signin.css">
+	<head th:insert="fragments.html::header"></head>
+</head>
+<body>
+<header th:insert="fragments.html::nav"></header>
+<div class="container">
+	<form class="form-signin" method="post" th:object="${form}" th:action="@{/account/join}">
+		<h2 class="form-signin-heading">회원가입</h2>
+		<p>
+			<label for="name" class="sr-only">Username</label>
+			<input type="text" id="name" name="name" class="form-control"
+				   placeholder="Username" required autofocus>
+		</p>
+		<p>
+			<label for="email" class="sr-only">email</label>
+			<input type="email" id="email" name="email" class="form-control"
+				   placeholder="Email" required autofocus>
+		</p>
+		<p>
+			<label for="password" class="sr-only">Password</label>
+			<input type="password" id="password" name="password" class="form-control"
+				   placeholder="Password" required>
+		</p>
+		<p>
+			<label for="birthday" class="sr-only">birthday</label>
+			<input type="date" id="birthday" name="birthday" class="form-control"
+				   placeholder="birthday" required autofocus>
+			
+		</p>
+		<p>
+			<label for="phoneNumber" class="sr-only">phoneNumber</label>
+			<input type="text" id="phoneNumber" name="phoneNumber" class="form-control"
+				   placeholder="phoneNumber" required autofocus>
+		</p>
+		<div>
+			<span>호스트로 가입하기</span>
+			<input type="checkbox" id="host" name="host" class="form-check-input mt-0"
+				   autocomplete="off">
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>
+	</form>
+</div>
+</body>
+</html>
