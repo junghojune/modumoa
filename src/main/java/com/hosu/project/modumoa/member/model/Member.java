@@ -1,10 +1,7 @@
 package com.hosu.project.modumoa.member.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -33,9 +30,9 @@ public class Member {
 
     private String phoneNumber;
 
-    private String birth;
+    private String birthDay;
 
-    private boolean type; // true -> host, false -> user
+    private boolean host; // true -> host, false -> user
 
     private int status; // 0 : 정상유저, 1 : 탈퇴유저, 2 : 휴먼유저
 

@@ -22,7 +22,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public Optional<Member> login(PostLoginReqDto loginReqDto) throws MemberOrPasswordNotFoundException {
+    public Optional<Member> login(PostLoginReqDto loginReqDto){
         Optional<Member> member = memberRepository.findByEmail(loginReqDto.getEmail());
 
         if(member.isEmpty()){
@@ -35,7 +35,7 @@ public class MemberService {
 
         return member;
     }
-    public Member signUp(PostSignUpReqDto postSignUpReqDto) throws AlreadyRegisteredUserException {
+    public Member signUp(PostSignUpReqDto postSignUpReqDto){
         if(memberRepository.findByEmail(postSignUpReqDto.getEmail()).isPresent()){
             throw new CustomException(DUPLICATED_USERNAME);
         }
@@ -44,9 +44,9 @@ public class MemberService {
                         .name(postSignUpReqDto.getName())
                         .email(postSignUpReqDto.getEmail())
                         .password(passwordEncoder.encode(postSignUpReqDto.getPassword()))
-                        .birth(postSignUpReqDto.getBirthday())
+                        .birthDay(postSignUpReqDto.getBirthday())
                         .phoneNumber(postSignUpReqDto.getPhoneNumber())
-                        .type(postSignUpReqDto.isHost())
+                        .host(postSignUpReqDto.isHost())
                         .status(0)
                 .build());
     }
